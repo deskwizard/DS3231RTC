@@ -1,0 +1,84 @@
+#######################################
+# Syntax Coloring Map For DS3231RTC
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+DS3231RTC	KEYWORD2
+
+get	KEYWORD2
+set	KEYWORD2
+read	KEYWORD2
+write	KEYWORD2
+chipPresent	KEYWORD2
+
+setSQWPin	KEYWORD2
+
+enableBBSQW	KEYWORD2
+disableBBSQW	KEYWORD2
+
+enable32kHz	KEYWORD2
+disable32kHz	KEYWORD2
+read32kHzState	KEYWORD2
+
+getOSF	KEYWORD2
+clearOSF	KEYWORD2
+
+Alarm1Enable	KEYWORD2
+Alarm1Disable	KEYWORD2
+Alarm2Enable	KEYWORD2
+Alarm2Disable	KEYWORD2
+clearAlarm1	KEYWORD2
+clearAlarm2	KEYWORD2
+alarm1Triggered	KEYWORD2
+alarm2Triggered	KEYWORD2
+alarm1State	KEYWORD2
+alarm2State	KEYWORD2
+readAlarm1Time	KEYWORD2
+readAlarm2Time	KEYWORD2
+getAlarm1Mode	KEYWORD2
+getAlarm2Mode	KEYWORD2
+setAlarm1Mode	KEYWORD2
+setAlarm2Mode	KEYWORD2
+setAlarm1	KEYWORD2
+setAlarm2	KEYWORD2
+
+conversionInProgress	KEYWORD2
+startConversion	KEYWORD2
+readTemp	KEYWORD2
+readLastTemp	KEYWORD2
+
+getAgingOffset	KEYWORD2
+setAgingOffset	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+RTC	KEYWORDS2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ALARM_1	LITERAL1
+ALARM_2	LITERAL1
+SQW_1HZ	LITERAL1
+SQW_1024KHZ	LITERAL1
+SQW_4096KHZ	LITERAL1
+SQW_8192KHZ	LITERAL1
+INT_MODE	LITERAL1
+A1_EVERY_SEC	LITERAL1
+A1_MATCH_SEC	LITERAL1
+A1_MATCH_MIN_SEC	LITERAL1
+A1_MATCH_HR_MIN_SEC	LITERAL1
+A1_MATCH_WEEKDAY_HR_MIN_SEC	LITERAL1
+A1_MATCH_DAY_HR_MIN_SEC	LITERAL1
+A2_EVERY_MIN	LITERAL1
+A2_MATCH_MIN	LITERAL1
+A2_MATCH_HR_MIN	LITERAL1
+A2_MATCH_WEEKDAY_HR_MIN	LITERAL1
+A2_MATCH_DAY_HR_MIN	LITERAL1

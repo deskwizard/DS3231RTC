@@ -1,0 +1,12 @@
+{
+  "name": "DS3231RTC",
+  "keywords": "i2c, rtc, time, clock",
+  "description": "DS3231RTC RTC (Real-Time-Clock)",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/deskwizard/DS3231RTC.git"
+  },
+  "frameworks": "arduino",
+  "platforms": "atmelavr"
+}
