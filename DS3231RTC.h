@@ -56,9 +56,9 @@ class DS3231RTC {
     DS3231RTC();
 
     // Functionally equivalent functions to DS1307RTC
-    time_t get();
+    static time_t get();
     bool set(time_t t);
-    bool read(tmElements_t &tm);
+    static bool read(tmElements_t &tm);
     bool write(tmElements_t &tm);
     static bool chipPresent() { return exists; }
 

@@ -58,29 +58,34 @@ bool DS3231RTC::set(time_t t) {
   return write(tm); 
 }
 
-// Read time from the RTC into a tmElements_t 
+// Aquire data from the RTC chip in BCD format
 bool DS3231RTC::read(tmElements_t &tm) {
 
-  uint8_t regRead[7] = { 0 };
+  uint8_t sec;
+  Wire.beginTransmission(DS3231_ADDRESS);
 
-  int returnValue = readRegisters(DS3231_TIME_BASE, regRead, 7);
+  Wire.write((uint8_t)0x00); 
 
-  tm.Second = bcd2dec(regRead[0] & 0x7f);   
-  tm.Minute = bcd2dec(regRead[1]);
-  tm.Hour =   bcd2dec(regRead[2] & 0x3f);  // mask assumes 24hr clock
-  tm.Wday = bcd2dec(regRead[3]);
-  tm.Day = bcd2dec(regRead[4]);
-  tm.Month = bcd2dec(regRead[5]);
-  tm.Year = y2kYearToTm((bcd2dec(regRead[6])));
-
-  if (returnValue != 0) {
+  if (Wire.endTransmission() != 0) {
     exists = false;
-  }  
-  else {
-    exists = true;
+    return false;
   }
+  exists = true;
 
-  return exists;
+  // request the 7 data fields   (secs, min, hr, dow, date, mth, yr)
+  Wire.requestFrom(DS3231_ADDRESS, tmNbrFields);
+  if (Wire.available() < tmNbrFields) return false;
+
+  sec = Wire.read();
+  tm.Second = bcd2dec(sec & 0x7f);   
+  tm.Minute = bcd2dec(Wire.read() );
+  tm.Hour =   bcd2dec(Wire.read() & 0x3f);  // mask assumes 24hr clock
+  tm.Wday = bcd2dec(Wire.read() );
+  tm.Day = bcd2dec(Wire.read() );
+  tm.Month = bcd2dec(Wire.read() );
+  tm.Year = y2kYearToTm((bcd2dec(Wire.read())));
+
+  return true;
 }
 
 // Write time to the RTC using a tmElements_t 
